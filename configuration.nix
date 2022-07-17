@@ -14,7 +14,22 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nappa"; # Define your hostname.
+  networking = {
+    hostName = "nappa";
+    hostId = "b4b9e863";
+    nameservers = [ "1.1.1.1" "1.0.0.1" ];
+  };
+
+  # Publish this server and its address on the network
+  services.avahi = {
+    enable = true;
+    publish = {
+      enable = true;
+      addresses = true;
+      workstation = true;
+    };
+  };
+
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
