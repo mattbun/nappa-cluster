@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz";
@@ -8,7 +8,8 @@ in
     (import "${home-manager}/nixos")
   ];
 
-  home-manager.users.matt = import /home/matt/.config/nixpkgs/home.nix;
+  # Set up home-manager for user 'matt' but only if there's a home.nix to use
+  home-manager.users.matt = if (lib.pathExists "/home/matt/.config/nixpkgs/home.nix") then (import /home/matt/.config/nixpkgs/home.nix) else {};
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
