@@ -9,7 +9,7 @@ in
   ];
 
   # Set up home-manager for user 'matt' but only if there's a home.nix to use
-  home-manager.users.matt = if (lib.pathExists "/home/matt/.config/nixpkgs/home.nix") then (import /home/matt/.config/nixpkgs/home.nix) else {};
+  home-manager.users.matt = let homePath = "/home/matt/.config/nixpkgs/home.nix"; in if (lib.pathExists homePath) then (import homePath) else {};
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
