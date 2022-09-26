@@ -86,7 +86,7 @@ in
   users.users.matt = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
     # shell = pkgs.zsh;
   };
 
@@ -128,10 +128,10 @@ in
   networking.defaultGateway = "192.168.1.1";
   networking.interfaces.enp4s0 = {
     useDHCP = false;
-    ipv4.addresses = [ {
+    ipv4.addresses = [{
       address = "192.168.2.1";
       prefixLength = 24;
-    } ];
+    }];
   };
 
   services.dnsmasq = {
@@ -148,8 +148,8 @@ in
       iptables -t nat -A POSTROUTING -o eno1 -j MASQUERADE
     '';
     trustedInterfaces = [ "eno1" "enp4s0" ];
-    allowedTCPPortRanges = [ { from = 1; to = 65535; } ];
-    allowedUDPPortRanges = [ { from = 1; to = 65535; } ];
+    allowedTCPPortRanges = [{ from = 1; to = 65535; }];
+    allowedUDPPortRanges = [{ from = 1; to = 65535; }];
     #allowedTCPPorts = [ 6443 ];
     #allowedUDPPorts = [ 67 6443 ];
   };
