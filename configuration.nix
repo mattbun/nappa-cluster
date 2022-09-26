@@ -98,8 +98,11 @@ in
     alacritty
     curl
     git
+    helm # synthesizer
     kubectl
+    kubernetes-helm
     k9s
+    screen
     vim
     wget
   ];
