@@ -90,8 +90,6 @@ in
     # shell = pkgs.zsh;
   };
 
-  environment.variables.BASE16_SHELL_SET_BACKGROUND = "false";
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
