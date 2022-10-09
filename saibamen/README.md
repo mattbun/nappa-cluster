@@ -1,6 +1,8 @@
 # saibamen
 
-This directory is where you'll find nixos configs for "saibaman" k3s agent nodes.
+![saibamen](https://static.wikia.nocookie.net/dragonball/images/1/1c/Saibamen_Anime.png/revision/latest/scale-to-width-down/350?cb=20210506052810)
+
+NixOS configs for "saibaman" k3s agent nodes.
 
 ## Installation
 
