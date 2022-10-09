@@ -168,6 +168,19 @@ in
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
   nix.settings.extra-platforms = [ "aarch64-linux" "arm-linux" ];
 
+  # Mount extra partition and use it as an NFS share
+  fileSystems."/nfs" = {
+    device = "/dev/disk/by-uuid/c4be327c-5c81-4600-9177-cd7c19b0f29e";
+    fsType = "ext4";
+  };
+
+  services.nfs.server = {
+    enable = true;
+    exports = ''
+      /nfs 192.168.2.0/24(rw,no_subtree_check,sync,no_wdelay,insecure,no_root_squash)
+    '';
+  };
+
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
