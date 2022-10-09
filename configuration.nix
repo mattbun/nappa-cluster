@@ -162,6 +162,10 @@ in
     extraFlags = "--advertise-address=192.168.2.1 --node-ip=192.168.2.1 --node-external-ip=192.168.1.4";
   };
 
+  # Give nappa the ability to build images for raspberry pis
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+  nix.settings.extra-platforms = [ "aarch64-linux" "arm-linux" ];
+
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
