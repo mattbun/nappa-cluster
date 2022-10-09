@@ -159,8 +159,10 @@ in
   services.k3s = {
     enable = true;
     role = "server";
-    extraFlags = "--advertise-address=192.168.2.1 --node-ip=192.168.2.1 --node-external-ip=192.168.1.4";
+    extraFlags = "--advertise-address=192.168.2.1 --node-ip=192.168.2.1 --node-external-ip=192.168.1.4 --flannel-backend=host-gw";
   };
+
+  services.flannel.iface = "enp4s0";
 
   # Give nappa the ability to build images for raspberry pis
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
