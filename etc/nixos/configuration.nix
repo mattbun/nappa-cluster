@@ -9,7 +9,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      /home/matt/nappa/configuration.nix
+      /home/matt/nappa/nappa.nix
     ];
 }
 
