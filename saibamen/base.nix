@@ -45,5 +45,7 @@
     nfs-utils # Required for nfs-subdir-external-provisioner
   ];
 
+  networking.firewall.enable = false;
+
   system.stateVersion = "22.05";
 }
