@@ -181,6 +181,10 @@ in
     '';
   };
 
+  # Periodically clean up old nix generations
+  nix.gc.automatic = true;
+  nix.gc.options = "--delete-older-than 90d";
+
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.

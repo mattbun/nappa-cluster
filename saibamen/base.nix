@@ -47,5 +47,9 @@
 
   networking.firewall.enable = false;
 
+  # Periodically clean up old nix generations
+  nix.gc.automatic = true;
+  nix.gc.options = "--delete-older-than 90d";
+
   system.stateVersion = "22.05";
 }
