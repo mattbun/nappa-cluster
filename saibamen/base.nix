@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -40,6 +40,10 @@
       # token = builtins.readFile "/var/lib/rancher/k3s/server/node-token"
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    nfs-utils # Required for nfs-subdir-external-provisioner
+  ];
 
   system.stateVersion = "22.05";
 }
