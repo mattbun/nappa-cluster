@@ -27,12 +27,10 @@ spec:
     grafana:
       ingress:
         enabled: true
-        annotations:
-          kubernetes.io/ingress.class: traefik
-          traefik.ingress.kubernetes.io/rewrite-target: /
-        path: /grafana/?(.*)
+        path: /grafana
         hosts:
           - nappa.local
       grafana.ini:
         server:
           root_url: http://localhost:3000/grafana
+          serve_from_sub_path: true
