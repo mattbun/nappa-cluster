@@ -23,3 +23,16 @@ spec:
         name: prometheus-community
         namespace: flux-system
       interval: 1m
+  values:
+    grafana:
+      ingress:
+        enabled: true
+        annotations:
+          kubernetes.io/ingress.class: traefik
+          traefik.ingress.kubernetes.io/rewrite-target: /
+        path: /grafana/?(.*)
+        hosts:
+          - nappa.local
+      grafana.ini:
+        server:
+          root_url: http://localhost:3000/grafana
