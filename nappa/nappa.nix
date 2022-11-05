@@ -4,7 +4,14 @@ let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-22.05.tar.gz";
 in
 {
+  nix.nixPath = [
+    "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+    "nixos-config=/home/matt/nappa/nappa/nappa.nix"
+    "/nix/var/nix/profiles/per-user/root/channels"
+  ];
+
   imports = [
+    /etc/nixos/hardware-configuration.nix
     (import "${home-manager}/nixos")
   ];
 
