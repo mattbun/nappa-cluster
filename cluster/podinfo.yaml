@@ -31,7 +31,6 @@ spec:
       annotations:
         traefik.ingress.kubernetes.io/rewrite-target: /
       hosts:
-        - host: nappa.local
-          paths:
+        - paths:
             - path: /podinfo
               pathType: Prefix
