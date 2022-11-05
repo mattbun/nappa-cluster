@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
-    ./base.nix
+    ./saibaman_base.nix
   ];
 
   networking.hostName = "saibaman1";

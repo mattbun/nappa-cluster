@@ -6,7 +6,7 @@ in
 {
   nix.nixPath = [
     "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
-    "nixos-config=/home/matt/nappa/nappa/nappa.nix"
+    "nixos-config=/home/matt/nappa/nodes/nappa.nix"
     "/nix/var/nix/profiles/per-user/root/channels"
   ];
 
