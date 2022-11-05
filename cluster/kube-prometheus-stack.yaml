@@ -28,8 +28,6 @@ spec:
       ingress:
         enabled: true
         path: /grafana
-        hosts:
-          - nappa.local
       grafana.ini:
         server:
           root_url: http://localhost:3000/grafana
