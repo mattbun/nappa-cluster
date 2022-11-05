@@ -35,7 +35,7 @@ The nix configurations at `nodes/saibamanX.nix` can be used to build sd card ima
 1. Build the image
 
     ```shell
-    nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage --argstr system aarch64-linux -I nixos-config=./saibaman1.nix
+    nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage --argstr system aarch64-linux -I nixos-config=./nodes/saibaman1.nix
     ```
 
 2. Install the image on an SD card
