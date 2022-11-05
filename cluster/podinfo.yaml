@@ -29,8 +29,19 @@ spec:
     ingress:
       enabled: true
       annotations:
-        traefik.ingress.kubernetes.io/rewrite-target: /
+        traefik.ingress.kubernetes.io/router.middlewares: default-podinfo-strip-prefix@kubernetescrd
       hosts:
         - paths:
             - path: /podinfo
               pathType: Prefix
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: podinfo-strip-prefix
+  namespace: default
+spec:
+  stripPrefix:
+    forceSlash: false
+    prefixes:
+      - /podinfo
