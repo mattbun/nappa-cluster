@@ -35,4 +35,5 @@ spec:
     prometheus:
       ingress:
         enabled: true
-        path: /prometheus
+        paths:
+          - /prometheus
