@@ -16,10 +16,10 @@ Install NixOS, then
 
 1. Clone this repo to `/home/matt/nappa`
 
-2. Copy the config at `etc/nixos/configuration.nix` to `/etc/nixos/configuration.nix`
+2. Copy the config at `nappa/etc/nixos/configuration.nix` to `/etc/nixos/configuration.nix`
 
     ```shell
-    sudo cp ./etc/nixos/configuration.nix /etc/nixos/configuration.nix
+    sudo cp ./nappa/etc/nixos/configuration.nix /etc/nixos/configuration.nix
     ```
 
 3. `sudo nixos-rebuild switch`
