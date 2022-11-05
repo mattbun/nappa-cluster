@@ -30,7 +30,20 @@ spec:
       tag: latest
     ingress:
       enabled: true
+      annotations:
+        traefik.ingress.kubernetes.io/router.middlewares: default-nginx-hello-strip-prefix@kubernetescrd
       hosts:
         - paths:
             - path: /hello
               pathType: Prefix
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: nginx-hello-strip-prefix
+  namespace: default
+spec:
+  stripPrefix:
+    forceSlash: false
+    prefixes:
+      - /hello
