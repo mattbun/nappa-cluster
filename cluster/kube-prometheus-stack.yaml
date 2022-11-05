@@ -32,8 +32,3 @@ spec:
         server:
           root_url: http://localhost:3000/grafana
           serve_from_sub_path: true
-    prometheus:
-      ingress:
-        enabled: true
-        paths:
-          - /prometheus
