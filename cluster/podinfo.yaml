@@ -25,6 +25,7 @@ spec:
       interval: 1m
   values:
     replicaCount: 2
+    logLevel: debug
     ingress:
       enabled: true
       annotations:
