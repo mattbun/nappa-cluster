@@ -32,7 +32,7 @@ Install NixOS, then
 2. Run `nixos-rebuild switch`, but be sure to include the path to `nappa.nix`
 
     ```shell
-    sudo nixos-rebuild switch -I nixos-config=/home/matt/nappa/nodes/nappa.nix`
+    sudo nixos-rebuild switch -I nixos-config=/home/matt/nappa/nodes/nappa.nix
     ```
 
 Subsequent calls to `nixos-rebuild switch` don't require `nixos-config` to be specified:
