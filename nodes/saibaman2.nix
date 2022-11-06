@@ -3,5 +3,5 @@
     ./saibaman_base.nix
   ];
 
-  networking.hostName = "saibaman2";
+  saibaman.name = "saibaman2";
 }
