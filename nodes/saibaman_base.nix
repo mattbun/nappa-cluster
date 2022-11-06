@@ -54,6 +54,25 @@
 
     networking.firewall.enable = false;
 
+    # Override default nixos-config path to keep file names the same between /etc and this repo
+    nix.nixPath = [
+      "nixpkgs=/nix/var/nix/profiles/per-user/root/channels/nixos"
+      "nixos-config=/etc/nixos/${config.saibaman.name}.nix"
+      "/nix/var/nix/profiles/per-user/root/channels"
+    ];
+
+    # Put a copy of this configuration in /etc/nixos
+    environment.etc."nixos/saibaman_base.nix" = {
+      mode = "0660";
+      gid = config.users.groups.wheel.gid;
+      text = builtins.readFile (./. + "/saibaman_base.nix");
+    };
+    environment.etc."nixos/${config.saibaman.name}.nix" = {
+      mode = "0660";
+      gid = config.users.groups.wheel.gid;
+      text = builtins.readFile (./. + "/${config.saibaman.name}.nix");
+    };
+
     # Periodically clean up old nix generations
     nix.gc.automatic = true;
     nix.gc.options = "--delete-older-than 90d";

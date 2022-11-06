@@ -79,3 +79,25 @@ The nix configurations at `nodes/saibamanX.nix` can be used to build sd card ima
     # /boot
     sudo mount /dev/loop2p1 somewhere
     ```
+
+### Making updates to already running saibamen
+
+Saibamen nodes have their configurations copied to `/etc/nixos`. Either ssh in and make changes directly, or `scp` changes from nappa:
+
+```shell
+# Files in /etc/nixos have the same name as they do in this repo
+# They're also writable by wheel users... that means matt!
+scp nodes/saibaman_base.nix saibaman2:/etc/nixos/saibaman_base.nix
+```
+
+Before running `nixos-rebuild switch`, you'll need to update nix channels:
+
+```shell
+sudo nix-channel --update
+```
+
+And now you're good to go!
+
+```shell
+sudo nixos-rebuild switch
+```
