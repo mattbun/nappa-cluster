@@ -55,3 +55,27 @@ The nix configurations at `nodes/saibamanX.nix` can be used to build sd card ima
     ```
 
 5. The agent node should get picked up by the k3s server node automatically
+
+### Bonus! How to mount the image without putting it on an SD card
+
+1. The image has multiple partitions, use `losetup` to scan for them and add `/dev/loop*` devices:
+
+    ```shell
+    sudo losetup -Pf result/sd-image/nixos-sd-image-saibaman.img
+    ```
+
+2. Create a directory to mount to
+
+    ```shell
+    mkdir somewhere
+    ```
+
+3. Mount it!
+
+    ```shell
+    # /
+    sudo mount /dev/loop2p2 somewhere
+
+    # /boot
+    sudo mount /dev/loop2p1 somewhere
+    ```
