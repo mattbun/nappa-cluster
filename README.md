@@ -4,10 +4,23 @@ Configuration for the nappa k3s cluster.
 
 ## Overview
 
-```
-nappa (k8s control plane, serves as network gateway for saibamen)
- ├─saibaman1
- └─saibaman2
+The cluster currently consists of three nodes:
+
+* `nappa` - x86_64 NUC
+* `saibaman1` - Raspberry Pi 4B (aarch64)
+* `saibaman2` - Raspberry Pi 4B (aarch64)
+
+`nappa` does all the heavy lifting here. It serves as network gateway (using dnsmasq), k3s control plane, and network storage (NFS share) for the cluster. Here's a little diagram to illustrate the network setup:
+
+```mermaid
+flowchart LR
+    subgraph 192.168.1.x
+        D(outside\nnetwork) --- A
+    end
+    subgraph 192.168.2.x
+        A[nappa] --- B[saibaman1]
+        A --- C[saibaman2]
+    end
 ```
 
 ## Installation (nappa)
