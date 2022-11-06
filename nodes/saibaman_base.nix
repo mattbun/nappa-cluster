@@ -17,9 +17,7 @@
     # TODO build to somewhere other than ./result
     sdImage = {
       compressImage = false;
-
-      # TODO wish I could get the hostname in here somehow
-      imageName = "nixos-sd-image-saibaman.img";
+      imageName = "nixos-sd-image-${config.saibaman.name}.img";
     };
 
     # put your own configuration here, for example ssh keys:
