@@ -29,17 +29,14 @@ Install NixOS, then
 
 1. Clone this repo to `/home/matt/nappa`
 
-2. Run `nixos-rebuild switch`, but be sure to include the path to `nappa.nix`
+2. To `nixos-rebuild switch` to the new configuration, you can use `make`
 
     ```shell
-    sudo nixos-rebuild switch -I nixos-config=/home/matt/nappa/nodes/nappa.nix
+    make nappa
+
+    # or just...
+    make
     ```
-
-Subsequent calls to `nixos-rebuild switch` don't require `nixos-config` to be specified:
-
-```shell
-sudo nixos-rebuild switch
-```
 
 ## Installation (saibamen)
 
@@ -48,7 +45,10 @@ The nix configurations at `nodes/saibamanX.nix` can be used to build sd card ima
 1. Build the image
 
     ```shell
-    nix-build '<nixpkgs/nixos>' -A config.system.build.sdImage --argstr system aarch64-linux -I nixos-config=./nodes/saibaman1.nix
+    make saibaman1
+
+    # Or
+    make saibaman2
     ```
 
 2. Install the image on an SD card

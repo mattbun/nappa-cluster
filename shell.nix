@@ -1,6 +1,7 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 mkShell {
   nativeBuildInputs = [
     fluxcd
+    gnumake
   ];
 }
